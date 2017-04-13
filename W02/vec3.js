@@ -50,3 +50,24 @@ Vec3.prototype.max = function()
     }
     return maxv;
 }
+
+AreaOfTriangle = function(v0,v1,v2)
+{
+    var xa,ya,za,xb,yb,zb;
+    var S,xg,yg,zg;
+    
+    xa = v1.x-v0.x;
+    ya = v1.y-v0.y;
+    za = v1.z-v0.z;
+
+    xb = v2.x-v0.x;
+    yb = v2.y-v0.y;
+    zb = v2.z-v0.z;
+
+    xg = ya*zb-za*yb;
+    yg = za*xb-xa*zb;
+    zg = xa*yb-ya*xb;
+
+    S = Math.sqrt(xg*xg + yg*yg + zg*zg);
+    return S/2;
+}
